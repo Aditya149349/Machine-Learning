@@ -13,7 +13,7 @@ class Assignment1:
         self.weight= np.zeroes(n_columns)
         self.bias=0
 
-        y_ = np.array([1 if i>0 else 0 for i in y])
+        y_ = np.array([1 if i>0 else 0 for i in y])#using list comprehension
         # loop for training the algorithm
         for _ in range(self.noIters):
             for idx, x_i in enumerate(x):
