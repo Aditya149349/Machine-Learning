@@ -7,3 +7,5 @@ file can be skipped as it does not have anything to do with the multi-layer perc
 
 The second IPython notebook called mlp_program.ipynb contains the code for the multi-layer perceptron from scratch. This is the 
 more important file to view. Both the notebooks have been saved as .py files as well, so they can be directly downloaded and run.
+
+Sonar_visualizations contains the visualizations of the training data, its possible to gauge the relationship between the attributes and the class through such visualizations.
