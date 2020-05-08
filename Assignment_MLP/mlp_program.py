@@ -125,95 +125,46 @@ class MLP:
 
 
 # Load the dataset - This dataset has 60 columns plus the decision variable 'R' and 'M'. It has a total of 208 rows.
-
-# In[297]:
-
-
 X = np.loadtxt('sonar.txt', usecols=range(0,60), delimiter =',') 
 labels = np.genfromtxt('sonar.txt', delimiter=',', usecols=-1, dtype=str)
 
-
 # Traverse through the array Labels and replace 'R' with 1 and 'M' with 0. 
-
-# In[298]:
-
-
 for i,label in enumerate(labels):
     if label == 'R':
         labels[i] = 1
     else:
         labels[i] = 0
 
-
-# In[299]:
-
-
-X
-
-
-# In[300]:
-
-
 y = np.array(labels)
-y
-
 
 # Shuffle the data so that the test data towards the end does not end up with only 0's
-
-# In[301]:
-
-
 from mlxtend.preprocessing import shuffle_arrays_unison
-
 X, y = shuffle_arrays_unison(arrays=[X, y], random_seed=3)
-X
-
 
 # Convert y from an array of strings to array of integers
-
-# In[302]:
-
-
 y = y.astype(np.int)
-y
-
 
 # Initialize the MLP class and fit the multi-layer perceptron model on X and y data. X and y is split implicitly inside the MLP class into training and test data
 # 
 # Then predict the y values for X_test and store it in y_predicted
 # 
 # The default number of iterations is 100, but can be changed by passing a value to n_iters. Similarly, learning rate is 0.01, but can be changed. In each iteration, we are printing the accuracy metrics for the predicted values of the training data.
-
-# In[303]:
-
-
 mlp = MLP()
 mlp.fit(X,y)
 y_predicted = mlp.predict()
 
-
 # An accuracy of 70% has been gained on test data after 100 epochs. 
-
-# In[304]:
-
-
 confusion_matrix = mlp.print_accuracy_metrics(y_predicted = y_predicted)
 
-
 # CONFUSION MATRIX
-
-# In[309]:
-
 
 import seaborn as sn
 import pandas as pd
 import matplotlib.pyplot as plt
 
 df_cm = pd.DataFrame(confusion_matrix, range(2), range(2))
-# plt.figure(figsize=(10,7))
 sn.set(font_scale=1.4) # for label size
 sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
 
 plt.show()
 print('[[TN, FP], [FN, TP]]')
-
