@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[311]:
-
-
 import numpy as np
 class MLP:
     
@@ -144,11 +138,12 @@ X, y = shuffle_arrays_unison(arrays=[X, y], random_seed=3)
 # Convert y from an array of strings to array of integers
 y = y.astype(np.int)
 
-# Initialize the MLP class and fit the multi-layer perceptron model on X and y data. X and y is split implicitly inside the MLP class into training and test data
-# 
+# Initialize the MLP class and fit the multi-layer perceptron model on X and y data. X and y is split implicitly inside the 
+# MLP class into training and test data
 # Then predict the y values for X_test and store it in y_predicted
-# 
-# The default number of iterations is 100, but can be changed by passing a value to n_iters. Similarly, learning rate is 0.01, but can be changed. In each iteration, we are printing the accuracy metrics for the predicted values of the training data.
+# The default number of iterations is 100, but can be changed by passing a value to n_iters. Similarly, learning rate is 
+# 0.01, but can be changed. In each iteration, we are printing the accuracy metrics for the predicted values of the training
+# data.
 mlp = MLP()
 mlp.fit(X,y)
 y_predicted = mlp.predict()
