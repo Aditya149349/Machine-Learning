@@ -1,0 +1,2 @@
+The objective is to develop a model for predicting customer churn at a fictitious wireless telecom company and use insights from the model to develop an incentive plan for enticing would-be churners to remain with company.</br>
+Data for the case are available in csv format. The data is a scaled down version of the full database. There are still 7043 customers in the database, and 20 potential predictors.
